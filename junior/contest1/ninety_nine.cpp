@@ -1,31 +1,24 @@
-#include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
 	for(int n = 0; n < 5; ++n) {
-		int pts = 0;
-		char comma;
+		int total = 0;
 		int cards[10] = {};
-		cin >> pts;
-		for(int i = 0; i < 10; ++i) {
-			cin >> comma >> cards[i];
-			//debug//cout << cards[i] << ' ';
-		}
-		//debug//cout << endl;
-
-		int total = pts;
+		cin >> total;
+		for(int i = 0; i < 10; ++i)
+			cin >> cards[i];
 
 		queue<int> playerHand;
 		playerHand.push(cards[0]); // first 3 cards dealt to player
 		playerHand.push(cards[1]);
 		playerHand.push(cards[2]);
 
-		for(int i = 3; i < 10; ++i) { // rest of the 10 cards
+		for(int i = 3; i < 10; ++i) { // deal the rest of the 10 cards
 			if(i & 1) { // player's turn
-				int use = playerHand.front();
+				int card = playerHand.front();
 				playerHand.pop();
-				switch(use) {
+				switch(card) {
 				case 9:
 					break; // pass
 				case 4:
@@ -38,18 +31,17 @@ int main() {
 						total += 1;
 					break;
 				default:
-					total += use;
+					total += card;
 					break;
 				}
-				//debug//cout << "card=" << cards[i] << " player=" << total << endl;
 				if(total > 99) {
 					cout << total << ", dealer" << endl;
 					break;
 				}
 				playerHand.push(cards[i]);
 			} else { // dealer's turn
-				int use = cards[i];
-				switch(use) {
+				int card = cards[i];
+				switch(card) {
 				case 9:
 					break; // pass
 				case 4:
@@ -62,10 +54,9 @@ int main() {
 						total += 1;
 					break;
 				default:
-					total += use;
+					total += card;
 					break;
 				}
-				//debug//cout << "card=" << cards[i] << " dealer=" << total << endl;
 				if(total > 99) {
 					cout << total << ", player" << endl;
 					break;
