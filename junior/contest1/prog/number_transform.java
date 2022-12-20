@@ -6,7 +6,7 @@ import java.util.*;
 public class number_transform {
 	public static void main(String[] args) throws IOException {
 		Scanner input = new Scanner(System.in);
-		for(long n = 0; n < 5; ++n) {
+		for(long n = 0; n < 5; ++n) { // read 5 input cases
 			long N = input.nextLong(); // [1..10^15]
 			int P = input.nextInt();
 			int D = input.nextInt();
@@ -29,7 +29,7 @@ public class number_transform {
 			}
 			for(int i = 0; i < P-1; ++i) // replace pth's right with all '0's
 				sb.setCharAt(i, '0');
-			sb.reverse(); // reverse back to normal
+			sb.reverse(); // reverse back to the original order
 			System.out.println(sb);
 		}
 	}
