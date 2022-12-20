@@ -1,0 +1,10 @@
+1) Realize that the mentioned timeline "May 25, 2019, 12:00:00" is actually in ACSL Time alreay!
+Earth Time: May 25, 2019, 11:59:59 <-
+ACSL  Time: May 25, 2019, 12:00:00
+
+2) It is tough to calculate the elapsed time (in seconds,minutes,hours,days,etc.) from t1 to t2.
+where t1 -> cut-off and t2 is the given input ACSL time
+
+3) Choose t0 which is ACSL "AD" -> "Jan 1st, 1 00:00:00" (not the same AD of Earth calender it does not matter).
+
+Use: t2 - t1 = (t2 - t0) - (t1 - t0)
