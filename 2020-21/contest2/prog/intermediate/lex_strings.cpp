@@ -2,14 +2,17 @@
 using namespace std;
 
 int main() {
-	for(int n = 0; n < 5; ++n) {
+	while(true) { // for batch process - do not do this in your hackerrank.com solutions
 		string s; int m;
 		cin >> s >> m;
+		if(!cin)
+			break;
 		// slice string s into blocks and save to a descendant storage
 		string block;
+		// key: string length, val: strings with the same length - in descending order
 		map<size_t,multiset<string>,greater<size_t>> store;
 		for(char c : s) {
-			if(block.empty() || block.back() != c) {
+			if(!block.empty() && block.back() != c) {
 				store[block.length()].insert(block);
 				block.clear();
 			}
@@ -24,11 +27,10 @@ int main() {
 				add += str;
 			}
 		}
-		//cout << add << " -> ";
 		// compress the chained
 		int len = 0;
 		string res;
-		for(char cur : add) { // compress length
+		for(char cur : add) { // compress
 			if(cur == res.back()) {
 				++len;
 				if(len <= m)

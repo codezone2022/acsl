@@ -23,7 +23,7 @@ public class triangle {
 				String s2 = input.next();
 				d = Integer.parseInt(s2, 8);
 			} catch(Exception e) {
-				break;
+				break; // exit the program
 			}
 			r = input.nextInt();
 			input.nextLine();
