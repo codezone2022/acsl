@@ -13,9 +13,11 @@ int digit_sum_octal(int num) {
 }
 
 int main() {
-	for(int n = 0; n < 5; ++n) { // You won't need this loop in hackrank.com!
+	while(true) { // You don't have to do this on hackerrank.com!
 		int s,d,r;
 		cin >> oct >> s >> oct >> d >> dec >> r; // s and d are in octal
+		if(!cin)
+			break;
 		int res = 0;
 		for(int i = 1; i < r; ++i) {
 			for(int j = 0; j <= i; ++j) {
