@@ -11,7 +11,7 @@ int main() {
 		for(int i = 0; i < 3; ++i) {
 			string line;
 			getline(cin, line);
-			istringstream is(line); //
+			istringstream is(line);
 			while(true) {
 				string token;
 				is >> token;
