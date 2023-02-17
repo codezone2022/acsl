@@ -85,7 +85,6 @@ public class string_difference {
 			one = remove_vowel(one);
 			two = remove_vowel(two);
 
-			// Use 'tie()' to bundle 'one' and 'two' as the receiving pair
 			String[] lrs = remove_like_LR(one, two);
 			one = lrs[0]; two = lrs[1];
 			String[] rls = remove_like_RL(one, two);
