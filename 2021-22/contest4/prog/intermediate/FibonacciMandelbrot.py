@@ -29,6 +29,7 @@ for n in range(5):
 		if absComplex(z) > 4.0:
 			print("ESCAPES {0}".format(i))
 			break;
+		# Use formatted strings to avoid floating point number comparison
 		s = "{0:.2f} {1:.2f}".format(z[0],z[1])
 		# Do we have a cycle? A repeated value
 		if s in results:

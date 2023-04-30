@@ -57,7 +57,7 @@ int main() {
 			auto p = make_pair( python_round(z[0]*100.0), python_round(z[1]*100.0) );
 			if(results.find(p) != results.end())
 			{
-				cout << i - results[p] << endl;
+				cout << i - results[p] << endl; // The lenght of cycle is a delta!
 				break;
 			}
 			results[p] = i;

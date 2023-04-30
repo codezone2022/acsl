@@ -51,13 +51,13 @@ public class FibonacciMandelbrot {
 				++i;
 				z = func(z, C);
 				z = new double[] { python_round(z[0]*100.0)/100.0, python_round(z[1]*100.0)/100.0 };
-				if(absComplex(z) > 4.0) {
+				if(absComplex(z) > 4.0) { // Has an escape?
 					System.out.println("ESCAPES " + Integer.toString(i));
 					break;
 				}
-				String s = String.format("%.2f %.2f", z[0], z[1]);
-				if(results.containsKey(s)) {
-					System.out.println(i-results.get(s));
+				String s = String.format("%.2f %.2f", z[0], z[1]); // Avoid double comparision
+				if(results.containsKey(s)) { // Has a cycle?
+					System.out.println(i-results.get(s)); // The length of cycle is a delta!
 					break;
 				}
 				results.put(s, i);
