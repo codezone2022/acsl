@@ -22,9 +22,7 @@ for n in range(5):
 	while True:
 		i += 1
 		z = func(z, C);
-		print(z, end=' -> ')
 		z = [ round(z[0]*100.0)/100.0, round(z[1]*100.0)/100.0 ];
-		print(z)
 		# Do we have an escape?
 		if absComplex(z) > 4.0:
 			print("ESCAPES {0}".format(i))
