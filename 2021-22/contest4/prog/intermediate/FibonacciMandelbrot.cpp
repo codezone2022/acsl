@@ -22,6 +22,9 @@ vector<double> func(vector<double> z, vector<double> C) {
 	return addComplex( mulComplex(z, z), C );
 }
 
+// What the problem description says about Python, Java, C++ round() function behave the same is incorrect.
+// Python3 behaves differently when numbers that are *exactly* halfway between two integers.
+// And the problem expect the Python3 rounding!!!
 double python_round(double num) {
     double whole_part, frac_part;
     frac_part = fabs(modf(num, &whole_part));

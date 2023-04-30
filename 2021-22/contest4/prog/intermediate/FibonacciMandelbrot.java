@@ -22,6 +22,9 @@ public class FibonacciMandelbrot {
 		return addComplex( mulComplex(z, z), C );
 	}
 
+	// What the problem description says about Python, Java, C++ round() function behave the same is incorrect.
+	// Python3 behaves differently when numbers that are *exactly* halfway between two integers.
+	// And the problem expect the Python3 rounding!!!
 	public static double python_round(double num) {
 		long whole_part = (long)num;
 		double frac_part = Math.abs(num - whole_part);
