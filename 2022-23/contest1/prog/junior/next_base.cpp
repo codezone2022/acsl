@@ -2,10 +2,9 @@
 using namespace std;
 
 long long str_to_int(string str, long long base) {
-	reverse(str.begin(), str.end());
 	long long res = 0;
 	for(long long i = 0, N = str.length(); i < N; ++i) {
-		res += ((str[i] - '0') * (long long)(pow(base, i)));
+		res += ((str[N-i-1] - '0') * (long long)(pow(base, i)));
 	}
 	return res;
 }
