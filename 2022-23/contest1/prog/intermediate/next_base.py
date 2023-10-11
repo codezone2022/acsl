@@ -8,14 +8,6 @@ def str_to_int(s, base):
 		res += (int(s[N-i-1]) * pow(base, i))
 	return res
 
-def digit_sum(num, base):
-	res = 0
-	while num > 0:
-		d = num % base
-		res += d
-		num = num // base
-	return res
-
 for k in range(5):
 	args = [x for x in input().split()]
 	n = int(args[0])
@@ -23,7 +15,11 @@ for k in range(5):
 	s = args[2]
 	num = str_to_int(s, b)
 	tot = 0
+	cnts = [0]*b
 	for i in range(n):
-		ds = digit_sum(num+i, b)
-		tot += ds;
-	print(tot)
+		numi = num + i
+		while numi > 0:
+			d = numi % b
+			++cnts[d]
+			numi = numi // b
+	print(cnts[b-1])
