@@ -2,6 +2,8 @@
 using namespace std;
 
 string to_string(int num, int base, int width = INT_MAX) {
+	if(!num)
+		return "0";
 	string res;
 	int i = 0;
 	while(num || width != INT_MAX) {
