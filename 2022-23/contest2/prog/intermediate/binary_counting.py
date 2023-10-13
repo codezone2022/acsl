@@ -17,6 +17,26 @@ def to_string(num, base, width = INT_MAX):
 			break
 	return res[::-1] # Reverse a string efficiently in Python
 
+def remove_left(src, sub):
+	pos = src.find(sub)
+	if pos < 0:
+		return src
+	res = ''
+	for i in range(len(src)):
+		if i < pos or i >= (pos + len(sub)):
+			res += src[i]
+	return res
+
+def remove_right(src, sub):
+	pos = src.rfind(sub)
+	if pos < 0:
+		return src
+	res = ''
+	for i in range(len(src)):
+		if i < pos or i >= (pos + len(sub)):
+			res += src[i]
+	return res
+
 for k in range(5):
 	line = input()
 	bs = ''
@@ -26,7 +46,10 @@ for k in range(5):
 	i = 0
 	while(True):
 		s = to_string(i, 2)
-		if s not in bs:
+		l = remove_left(bs, s)
+		r = remove_right(l, s)
+		if bs == r:
 			break
+		bs = r
 		i += 1
 	print(i - 1)

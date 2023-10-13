@@ -3,6 +3,10 @@ import java.util.*;
 
 public class binary_counting {
 
+	public static String reverse(String s) {
+		return new StringBuilder(s).reverse().toString();
+	}
+
 	public static String to_string(int num, int base, int width) {
 		if(num == 0)
 			return new String("0");
@@ -15,7 +19,31 @@ public class binary_counting {
 			if(++i >= width)
 				break;
 		}
-		return new StringBuilder(res).reverse().toString();
+		return reverse(res);
+	}
+
+	public static String remove_left(String src, String sub) {
+		int pos = src.indexOf(sub);
+		if(pos < 0)
+			return src;
+		String res = new String();
+		for(int i = 0; i < src.length(); ++i) {
+			if(i < pos || i >= pos + sub.length())
+				res += src.charAt(i);
+		}
+		return res;
+	}
+
+	public static String remove_right(String src, String sub) {
+		int pos = src.lastIndexOf(sub);
+		if(pos < 0)
+			return src;
+		String res = new String();
+		for(int i = 0; i < src.length(); ++i) {
+			if(i < pos || i >= pos + sub.length())
+				res += src.charAt(i);
+		}
+		return res;
 	}
 
 	public static void main(String[] args) {
@@ -31,8 +59,11 @@ public class binary_counting {
 			int i = 0;
 			for(;;++i) {
 				String s = to_string(i, 2, Integer.MAX_VALUE);
-				if(!bs.contains(s))
+				String l = remove_left(bs, s);
+				String r = remove_right(l, s);
+				if(bs == r)
 					break;
+				bs = r;
 			}
 			System.out.println(i-1);
 		}
