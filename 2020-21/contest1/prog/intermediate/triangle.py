@@ -5,7 +5,7 @@ def digit_sum_octal(num):
 	s = oct(num)[2:]
 	res = 0
 	for ch in s:
-		res += (ord(ch) - ord('0'))
+		res += int(ch,8) # "int(ch)" is also good b/c 'ch' is a single digit! 
 	return res
 
 while(True): # You don't have to do this on hackerrank.com!
