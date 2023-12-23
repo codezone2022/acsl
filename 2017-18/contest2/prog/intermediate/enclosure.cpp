@@ -3,7 +3,7 @@ using namespace std;
 
 // Missing (: locations on the left of the first digit but the number has no ), starting from [ stopping by )
 // Missing ): locations on the operators or ], starting from ( stopping by ] inclusive
-// Missing [: locations on the left of ( or the first digit, starting from the begin of string stopping by (
+// Missing [: locations on the left of ( or the first digit, starting from the begin of string stopping by ( inclusive
 // Missing ]: locations on the operators or ) or end of string, starting from ) stopping by the end of string
 
 int main() {
