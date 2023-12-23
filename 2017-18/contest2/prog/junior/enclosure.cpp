@@ -3,38 +3,22 @@ using namespace std;
 
 int main() {
 	for(int n = 0; n < 5; ++n) {
-		string exp, line;
-		getline(cin, line);
-		for(char ch : line) // remove spaces
-			if(ch != ' ')
-				exp += ch;
+		string exp;
+		getline(cin, exp);
 		vector<int> res;
-		auto leftpos = exp.find('(');
-		auto rightpos = exp.find(')');
-		bool foundleft = (leftpos != string::npos);
-		if(foundleft) { // missing right
-			for(int i = leftpos; i < exp.length(); ++i) {
+		if(exp.find(')') == string::npos) { // missing )
+			int beg = exp.find('('); int end = exp.length();
+			for(int i = beg + 1; i < end; ++i) {
 				char c = exp[i];
-				switch(c) {
-				case '+':
-				case '-':
-				case '*':
-				case '/':
+				if(c == '+' || c == '-' || c == '*' || c == '/')
 					res.push_back(i+3);
-					break;
-				}
 			}
-		} else { // missing left
-			for(int i = 0; i < rightpos; ++i) {
+		} else if(exp.find('(') == string::npos) { // missing (
+			int beg = 0; int end = exp.find(')');
+			for(int i = beg; i < end; ++i) {
 				char c = exp[i];
-				switch(c) {
-				case '+':
-				case '-':
-				case '*':
-				case '/':
+				if(c == '+' || c == '-' || c == '*' || c == '/')
 					res.push_back(i);
-					break;
-				}
 			}
 		}
 		for(int i = 0; i < res.size(); ++i) {
